@@ -2,7 +2,6 @@
 
 #include "router_lookahead_map.h"
 #include "router_lookahead_extended_map.h"
-#include "connection_box_lookahead_map.h"
 #include "vpr_error.h"
 #include "globals.h"
 #include "route_timing.h"
@@ -17,8 +16,6 @@ static std::unique_ptr<RouterLookahead> make_router_lookahead_object(e_router_lo
         return std::make_unique<MapLookahead>();
     } else if (router_lookahead_type == e_router_lookahead::EXTENDED_MAP) {
         return std::make_unique<ExtendedMapLookahead>();
-    } else if (router_lookahead_type == e_router_lookahead::CONNECTION_BOX_MAP) {
-        return std::make_unique<ConnectionBoxMapLookahead>();
     } else if (router_lookahead_type == e_router_lookahead::NO_OP) {
         return std::make_unique<NoOpLookahead>();
     }
