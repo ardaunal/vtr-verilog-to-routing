@@ -110,11 +110,10 @@ constexpr const char* EMPTY_BLOCK_NAME = "EMPTY";
 #endif
 
 enum class e_router_lookahead {
-    CLASSIC,           ///<VPR's classic lookahead (assumes uniform wire types)
-    MAP,               ///<Lookahead considering different wire types (see Oleg Petelin's MASc Thesis)
-    EXTENDED_MAP,      ///<Lookahead with a more extensive node sampling method
-    NO_OP,             ///<A no-operation lookahead which always returns zero
-    CONNECTION_BOX_MAP ///<Lookahead considering different wire types and IPIN connection box.
+    CLASSIC,      ///<VPR's classic lookahead (assumes uniform wire types)
+    MAP,          ///<Lookahead considering different wire types (see Oleg Petelin's MASc Thesis)
+    EXTENDED_MAP, ///<Lookahead with a more extensive node sampling method
+    NO_OP         ///<A no-operation lookahead which always returns zero
 };
 
 enum class e_route_bb_update {
@@ -1186,11 +1185,10 @@ struct t_router_opts {
     enum e_route_type route_type;
     int fixed_channel_width;
     int min_channel_width_hint; ///<Hint to binary search of what the minimum channel width is
-    bool trim_empty_channels;
-    bool trim_obs_channels;
     enum e_router_algorithm router_algorithm;
     enum e_base_cost_type base_cost_type;
     float astar_fac;
+    float router_profiler_astar_fac;
     float max_criticality;
     float criticality_exp;
     float init_wirelength_abort_threshold;
